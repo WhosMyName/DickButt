@@ -40,7 +40,7 @@ image_angle = image_angle + 90;
 
 
 //---------- Shooting -----------
-BPS = Sec1/10;
+BPS = Sec1/5;
 ShootCounter = 0;
 
 </string>
@@ -70,11 +70,8 @@ AimedDirection = 0;
 
 
 //Shooting---------------------------------------------------------------------------------------
-if (gamepad_button_check(PlayerNum, gp_shoulderr) and ShootCounter == 0){
-    SharpShootingBPS(oBullet, AimedDirection, 10);
-    ShootCounter++;
-}
-if (gamepad_button_check(PlayerNum, gp_shoulderr) and ShootCounter &gt;= 1){
+
+if (gamepad_button_check(PlayerNum, gp_shoulderr) and ShootCounter &gt;= 0){
     ShootCounter++;
     if (ShootCounter == BPS){
          SharpShootingBPS(oBullet, AimedDirection, 10);

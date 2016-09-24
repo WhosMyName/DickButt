@@ -10,7 +10,6 @@
     <sprite>sprites\sClass2</sprite>
     <sprite>sprites\sWall</sprite>
     <sprite>sprites\sBullet</sprite>
-    <sprite>sprites\sprite13</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -45,6 +44,7 @@
       <object>objects\Player_1</object>
       <object>objects\Player_2</object>
     </objects>
+    <object>objects\PowerUp</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room0</room>

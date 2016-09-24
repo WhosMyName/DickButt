@@ -34,7 +34,6 @@
   </scripts>
   <objects name="objects">
     <object>objects\oGlobalVars</object>
-    <object>objects\oScreenSplitting</object>
     <object>objects\oGame</object>
     <objects name="GroundAndWalls">
       <object>objects\oWallParent</object>

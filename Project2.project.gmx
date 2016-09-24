@@ -18,6 +18,7 @@
   <scripts name="scripts">
     <scripts name="Player">
       <script>scripts\PlayerMovement.gml</script>
+      <script>scripts\PlayerMindControl.gml</script>
       <script>scripts\Respawn.gml</script>
       <script>scripts\TurnDirection.gml</script>
       <script>scripts\SharpShootingBPS.gml</script>
@@ -30,6 +31,7 @@
       <script>scripts\RectangleCollision.gml</script>
       <script>scripts\RectangleCollisionID.gml</script>
     </scripts>
+    <script>scripts\Energy.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oGlobalVars</object>

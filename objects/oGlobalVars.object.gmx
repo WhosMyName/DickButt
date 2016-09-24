@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-globalvar DispWidth;
+            <string>globalvar DispWidth;
 DispWidth = display_get_width();
 
 globalvar DispHeight;
@@ -42,20 +41,6 @@ ScreenHalfV = ((DispHeight / 2) - 1);
 
 globalvar RoomIndex;
 RoomIndex = 0;
-
-/*-----------------------------------*/
-
-globalvar Player1Pick;
-Player1Pick = 0;
-
-globalvar Player2Pick;
-Player2Pick = 0;
-
-globalvar Player3Pick;
-Player3Pick = 0;
-
-globalvar Player4Pick;
-Player4Pick = 0;
 
 /*-----------------------------------*/
 
@@ -116,19 +101,6 @@ if (gamepad_is_connected(0) and gamepad_is_connected(1)){
    MaxPlayer = 2;
    Player1Exist = 1;
    Player2Exist = 1;
-}
-if (gamepad_is_connected(0) and gamepad_is_connected(1) and gamepad_is_connected(2)){
-   MaxPlayer = 3;
-   Player1Exist = 1;
-   Player2Exist = 1;
-   Player3Exist = 1;
-}
-if (gamepad_is_connected(0) and gamepad_is_connected(1) and gamepad_is_connected(2) and gamepad_is_connected(3)){
-   MaxPlayer = 4;
-   Player1Exist = 1;
-   Player2Exist = 1;
-   Player3Exist = 1;
-   Player4Exist = 1;
 }
 </string>
           </argument>

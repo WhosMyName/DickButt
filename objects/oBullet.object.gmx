@@ -49,13 +49,19 @@
           <argument>
             <kind>1</kind>
             <string>if (instance_exists(Owner) == true){
-KillOnViewExit(Owner.Owner.PlayerNum);
-if (RectangleCollision(oWallParent) == true){
-instance_destroy();
-}
+    KillOnViewExit(Owner.PlayerNum);
+    if (RectangleCollision(oPlayer) == true &amp;&amp; RectangleCollision(Owner) == false){
+        instance_destroy();
+        if (RectangleCollision(oPlayer) == true){
+           Collider = RectangleCollisionID(oPlayer);
+           with(Collider){
+               Life(0,100,0);
+           }
+        }
+    }
 }
 else {
-instance_destroy();
+    instance_destroy();
 }
 </string>
           </argument>

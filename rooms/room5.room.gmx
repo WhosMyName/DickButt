@@ -6,7 +6,7 @@
   <vsnap>32</vsnap>
   <hsnap>32</hsnap>
   <isometric>0</isometric>
-  <speed>60</speed>
+  <speed>30</speed>
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
@@ -51,9 +51,10 @@
     <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
+    <instance objName="Player_1" x="96" y="224" name="inst_924FB471" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGlobalVars" x="256" y="128" name="inst_DC1A1C25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oScreenSplitting" x="160" y="64" name="inst_FA315D03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGame" x="64" y="128" name="inst_CA4BB739" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oScreenSplitting" x="128" y="64" name="inst_FA315D03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGame" x="96" y="160" name="inst_15C94C9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

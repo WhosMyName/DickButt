@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>oClasses</parentName>
+  <parentName>oPlayer</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var Owner;
+            <string>PlayerNum = 0;
 Life(1000, 0, 0);
 
 // Movement----------------------
@@ -33,18 +33,11 @@ hsp = 0;
 vsp = 0;
 movespeed = 7.5;
 // END --------------------------
+
 // &lt;--------- Hotfix -----------&gt;
 image_angle = image_angle + 90;
 //-------------------------------
-//------------ Shields-----------
-ShieldExist = 0;
-FlameShieldExist = 0;
-Release = 0;
 
-//----------Targeting------------
-TargetCrossCreated = 0;
-CurrentTarget = 0;
-MaxTargets = ArrayIDList(oEnemy1);
 
 //---------- Shooting -----------
 BPS = Sec1/10;
@@ -72,80 +65,30 @@ ShootCounter = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PlayerMovement(Owner.PlayerNum);
-AimedDirection = TurnDirection(Owner.PlayerNum);
+            <string>PlayerMovement(PlayerNum);
+AimedDirection = 0;
 
-//Shield----------------------------------------------------------------------------------------
-if(gamepad_button_check_pressed(Owner.PlayerNum, gp_shoulderrb) and ShieldExist == 0){
-Shield = instance_create(x+5, y, oShield);
-Shield.Owner = self.id;
-ShieldExist = 1;
-Life(0,0,25)
-}
-if(gamepad_button_check_released(Owner.PlayerNum, gp_shoulderrb) and ShieldExist == 1){
-ShieldExist = 0;
-}
-//Flaming Shield--------------------------------------------------------------------------------
-if(gamepad_button_check(Owner.PlayerNum, gp_face2) and ShieldExist == 1 and FlameShieldExist != 1){
-FlameShieldExist = 1;
-FlameShield = instance_create(x, y-16, oFlameShield);
-FlameShield.Owner = self.id;
-}
-if(gamepad_button_check_released(Owner.PlayerNum, gp_face2) and ShieldExist == 1){
-with(FlameShield){
-instance_destroy();
-}
-FlameShieldExist = 0;
-}
-//Shield END-------------------------------------------------------------------------------------
 
-//Targeting--------------------------------------------------------------------------------------
-/*Creatin' One TargetCross*/
-if (gamepad_button_check_pressed(Owner.PlayerNum, gp_face3) and TargetCrossCreated == 0){
-    TargetCross = instance_create(x, y, oTarget);
-    TargetCross.Owner = self.id;
-    TargetCrossCreated = 1;
-    Release = 1;
-}
-if (gamepad_button_check_pressed(Owner.PlayerNum, gp_face3) and TargetCrossCreated == 1 and Release == 0){
-    TargetCrossCreated = 0; 
-    Release = 1; 
-}
-if (gamepad_button_check_released(Owner.PlayerNum, gp_face3) and Release == 1){
-    Release = 0;  
-}
-//Targeting END----------------------------------------------------------------------------------
-
-if(gamepad_button_check(Owner.PlayerNum, gp_face4)){
-//Dash
-}
 //Shooting---------------------------------------------------------------------------------------
-if (gamepad_button_check(Owner.PlayerNum, gp_shoulderr) and ShootCounter == 0){
+if (gamepad_button_check(PlayerNum, gp_shoulderr) and ShootCounter == 0){
     SharpShootingBPS(oBullet, AimedDirection, 10);
     ShootCounter++;
 }
-if (gamepad_button_check(Owner.PlayerNum, gp_shoulderr) and ShootCounter &gt;= 1){
+if (gamepad_button_check(PlayerNum, gp_shoulderr) and ShootCounter &gt;= 1){
     ShootCounter++;
     if (ShootCounter == BPS){
          SharpShootingBPS(oBullet, AimedDirection, 10);
          ShootCounter = 0;
     }
 }
-if (gamepad_button_check_released(Owner.PlayerNum, gp_shoulderr) and ShootCounter &gt; 0){
+if (gamepad_button_check_released(PlayerNum, gp_shoulderr) and ShootCounter &gt; 0){
     ShootCounter = 0;  
 }
 //Shooting END-----------------------------------------------------------------------------------
 
 
-/*  &lt;------------------------ Tests Pending -------------------------------&gt;
 
-// Create Draw-Event and add:
-// draw_text(x, y, m);
 
-//--------//
-m = ?;
-//--------//
-*/
 </string>
           </argument>
         </arguments>

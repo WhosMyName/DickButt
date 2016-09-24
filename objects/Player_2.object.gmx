@@ -27,6 +27,12 @@
             <kind>1</kind>
             <string>PlayerNum = 1;
 Life(1000, 0, 0);
+MaxEnergy=100;
+CurrentEnergy=MaxEnergy;
+
+// Control-----------------------
+hasControl=true;
+mindControl=false;
 
 // Movement----------------------
 hsp = 0;
@@ -65,7 +71,9 @@ ShootCounter = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PlayerMovement(PlayerNum);
+            <string>if(hasControl){
+    PlayerMovement(PlayerNum);
+}  
 AimedDirection = 180;
 
 
@@ -85,6 +93,23 @@ if (gamepad_button_check_released(PlayerNum, gp_shoulderr) and ShootCounter &gt;
     ShootCounter = 0;  
 }
 //Shooting END-----------------------------------------------------------------------------------
+
+//Mind Control and Energy------------------------------
+if(CurrentEnergy&gt;MaxEnergy){
+    CurrentEnergy=MaxEnergy;
+}
+
+if(gamepad_button_check_pressed(PlayerNum,gp_shoulderrb) &amp;&amp; CurrentEnergy&gt;0){    
+    mindControl=true;
+    Player_1.hasControl=false;
+}
+if(gamepad_button_check(PlayerNum,gp_shoulderrb) &amp;&amp; CurrentEnergy&gt;0){    
+    Energy(0,-50*(1/fps));
+}
+if(gamepad_button_check_released(PlayerNum,gp_shoulderrb) || CurrentEnergy&lt;=0){  
+    mindControl=false;  
+    Player_1.hasControl=true;
+}
 </string>
           </argument>
         </arguments>

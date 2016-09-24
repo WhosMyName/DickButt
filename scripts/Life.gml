@@ -22,6 +22,7 @@ CurrentHealth = CurrentHealth - DamageCalc;
 }
 }
 if (CurrentHealth <= 0){
+audio_play_sound(sound_death, 1, false);
 instance_destroy();
 }
 else {

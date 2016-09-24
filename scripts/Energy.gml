@@ -4,22 +4,19 @@ EnergyChange = argument1;
 if (MaxEnergy == 0){
     MaxEnergy = noone;
 }
-else{
-    CurrentEnergy = MaxEnergy; 
+
+if (MaxEnergy != noone){
+CurrentEnergy = MaxEnergy;
+MaximumEnergy = MaxEnergy;
+MaxEnergy = noone;
 }
 
 if (CurrentEnergy != noone){
-    if !( CurrentEnergy  > MaxEnergy){
+    if !( CurrentEnergy  > MaximumEnergy){
         CurrentEnergy = CurrentEnergy + EnergyChange;
     }
-    if ( CurrentEnergy  > MaxEnergy){
-        CurrentEnergy = MaxEnergy;        
+    if ( CurrentEnergy  > MaximumEnergy){
+        CurrentEnergy = MaximumEnergy;        
     }
 }
-
-if (CurrentEnergy <= 0){
-    instance_destroy();
-}
-else {
-    return CurrentEnergy;
-}
+return CurrentEnergy;
